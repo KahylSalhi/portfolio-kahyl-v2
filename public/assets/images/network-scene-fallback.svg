@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" fill="none">
+  <title>Schéma abstrait d’une infrastructure réseau</title>
+  <desc>Des équipements reliés par des lignes, en référence aux systèmes et réseaux.</desc>
+  <g stroke="#D7D4CC" stroke-width="1">
+    <path d="M92 181 225 83 365 126 435 245 274 291 92 181Z"/>
+    <path d="m225 83 49 208M92 181l273-55M225 83l210 162M92 181l343 64"/>
+  </g>
+  <g fill="#F5F3EE" stroke="#181818" stroke-width="1.5">
+    <circle cx="92" cy="181" r="13"/>
+    <circle cx="225" cy="83" r="8"/>
+    <circle cx="365" cy="126" r="11" stroke="#315BFF"/>
+    <circle cx="435" cy="245" r="7"/>
+    <circle cx="274" cy="291" r="12"/>
+  </g>
+  <circle cx="92" cy="181" r="4" fill="#315BFF"/>
+</svg>

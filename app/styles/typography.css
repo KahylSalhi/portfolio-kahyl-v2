@@ -1,0 +1,14 @@
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+.hero__name,
+.section-heading h2,
+.profile-section h2,
+.contact-section h2,
+.not-found h1 {
+  text-wrap: balance;
+}

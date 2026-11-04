@@ -1,0 +1,28 @@
+# Legacy source portfolio is read-only and must never enter the new site build.
+/ancien-portfolio/
+
+# Dependencies and generated application output.
+/node_modules/
+/build/
+/dist/
+/.react-router/
+/coverage/
+/playwright-report/
+/test-results/
+*.tsbuildinfo
+
+# Local configuration and secrets.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Temporary and operating-system files.
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db

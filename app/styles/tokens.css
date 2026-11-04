@@ -1,0 +1,16 @@
+:root {
+  --color-paper: #f5f3ee;
+  --color-ink: #181818;
+  --color-electric: #315bff;
+  --color-coral: #ff7049;
+  --color-muted: #6d6b65;
+  --color-rule: #d7d4cc;
+  --font-display: "Space Grotesk Variable", "Inter Variable", sans-serif;
+  --font-body: "Inter Variable", "Helvetica Neue", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  color-scheme: light;
+  --page-gutter: clamp(1.25rem, 5vw, 5rem);
+  --content-max: 100rem;
+  --space-section: clamp(6rem, 12vw, 12rem);
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}

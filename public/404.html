@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F5F3EE" />
+    <title>Page introuvable — Kahyl Salhi</title>
+    <style>
+      :root {
+        color-scheme: light;
+        background: #f5f3ee;
+        color: #181818;
+        font-family: Inter, "Helvetica Neue", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        align-content: center;
+        margin: 0;
+        padding: clamp(1.5rem, 8vw, 7rem);
+      }
+
+      main {
+        max-width: 62rem;
+        margin: 0 auto;
+      }
+
+      p {
+        color: #315bff;
+        font: 0.75rem/1.5 "Courier New", monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 1.5rem 0 2.5rem;
+        font-size: clamp(3rem, 10vw, 8rem);
+        font-weight: 400;
+        letter-spacing: -0.08em;
+        line-height: 0.95;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      a {
+        padding: 0.8rem 1rem;
+        border: 1px solid #181818;
+        color: #181818;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus-visible {
+        border-color: #315bff;
+        background: #315bff;
+        color: #f5f3ee;
+      }
+
+      a:focus-visible {
+        outline: 2px solid #181818;
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Erreur / 404</p>
+      <h1>Cette page n’existe pas.</h1>
+      <nav aria-label="Liens utiles">
+        <a href="/">Retour à l’accueil</a>
+        <a href="/projets">Voir les projets</a>
+      </nav>
+    </main>
+  </body>
+</html>
