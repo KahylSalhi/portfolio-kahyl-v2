@@ -64,6 +64,30 @@ export default function ProjectDetail() {
           </ul>
         </div>
 
+        {project.media?.length ? (
+          <div
+            aria-label="Visuels du projet"
+            className="project-detail__gallery"
+          >
+            {project.media.map((image, index) => (
+              <Reveal key={image.src}>
+                <figure className="project-detail__figure">
+                  <span className="project-detail__figure-index mono">
+                    VISUEL / {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <img
+                    alt={image.alt}
+                    decoding="async"
+                    loading="lazy"
+                    src={image.src}
+                  />
+                  <figcaption>{image.caption}</figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        ) : null}
+
         <div className="case-study">
           <Reveal>
             <section aria-labelledby="case-context">
@@ -124,13 +148,6 @@ export default function ProjectDetail() {
             </section>
           </Reveal>
         </div>
-
-        {project.media?.map((image) => (
-          <figure className="project-detail__figure" key={image.src}>
-            <img src={image.src} alt={image.alt} loading="lazy" />
-            <figcaption>{image.caption}</figcaption>
-          </figure>
-        ))}
 
         <Link className="text-link" to="/projets">
           Revenir aux sept projets <span aria-hidden="true">↗</span>

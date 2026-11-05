@@ -30,15 +30,60 @@ for (const slug of slugs) {
   });
 }
 
+test("project case studies feature only their approved media and captions", async ({
+    page,
+}) => {
+    const mediaProjects = [
+      {
+        slug: "password-checker",
+        src: "/assets/images/projects/password-checker-code.png",
+        caption: /Extrait du script/,
+      },
+      {
+        slug: "cisco-rip",
+        src: "/assets/images/projects/cisco-topology.png",
+        caption: /Topologie présentée/,
+      },
+      {
+        slug: "vigilflow",
+        src: "/assets/images/projects/vigilflow-chart.png",
+        caption: /tableau de bord/,
+      },
+      {
+        slug: "bash-user-manager",
+        src: "/assets/images/projects/bash-user-manager-code.png",
+        caption: /menu Bash/,
+      },
+    ];
+
+    for (const project of mediaProjects) {
+      await page.goto(`/projets/${project.slug}`);
+      const gallery = page.getByRole("generic", { name: "Visuels du projet" });
+      const figure = gallery.locator("figure");
+
+      await expect(figure).toHaveCount(1);
+      await expect(figure.locator("img")).toHaveAttribute("src", project.src);
+      await expect(figure.locator("img")).toHaveAttribute("alt", /.+/);
+      await expect(figure.locator("figcaption")).toContainText(project.caption);
+      await expect(figure.locator(".project-detail__figure-index")).toHaveText(
+        "VISUEL / 01",
+      );
+    }
+});
+
 test("project previews reveal only the matching reviewed image on hover and focus", async ({
   page,
 }) => {
   await page.goto("/projets");
 
+  await expect(page.locator(".project-index > li")).toHaveCount(7);
   const passwordProject = page.getByRole("link", {
     name: /Testeur de mot de passe/,
   });
   const passwordPreview = passwordProject.locator(".project-card__preview");
+  await expect(
+    passwordProject.locator(".project-card__technology"),
+  ).toHaveText(["HTML", "CSS", "JavaScript"]);
   await passwordProject.scrollIntoViewIfNeeded();
   await page.waitForTimeout(450);
   const beforeHover = await passwordProject.boundingBox();

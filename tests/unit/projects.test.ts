@@ -73,4 +73,13 @@ describe("portfolio project content", () => {
       ],
     ]);
   });
+
+  it("uses only project-record technologies for the project index", () => {
+    expect(projects.every((project) => project.technologies.length > 0)).toBe(
+      true,
+    );
+    expect(
+      projects.flatMap((project) => project.technologies).filter(Boolean),
+    ).toEqual(projects.flatMap((project) => project.technologies));
+  });
 });
