@@ -18,7 +18,7 @@ export interface EducationEntry {
   institution?: string;
   startDate?: string;
   endDate?: string;
-  status: "current" | "completed" | "unverified";
+  status: "current" | "attended" | "completed" | "unverified";
   description?: string;
 }
 
@@ -80,6 +80,7 @@ export interface ContactChannel {
 export interface CVDocument {
   publicPath: string;
   approved: boolean;
+  filePresent: boolean;
   lastReviewed?: string;
 }
 

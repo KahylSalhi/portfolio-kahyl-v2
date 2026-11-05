@@ -10,14 +10,18 @@ test("the home page introduces Kahyl and links to the project and contact pages"
   ).toBeVisible();
   await expect(page.locator(".home-hero__identity")).toContainText("Kahyl Salhi");
   await expect(
-    page.locator("#accueil").getByText("Étudiant en BTS SIO, option SISR.", {
-      exact: true,
-    }),
+    page
+      .locator("#accueil")
+      .getByText("Étudiant en deuxième année de BTS SIO, option SISR.", {
+        exact: true,
+      }),
   ).toBeVisible();
   await expect(
     page
       .locator("#accueil")
-      .getByText("À la recherche d’une alternance en informatique."),
+      .getByText(
+        "À la recherche d’une alternance en informatique, notamment en systèmes, réseaux ou support informatique.",
+      ),
   ).toBeVisible();
   await expect(
     page.locator("#accueil").getByRole("link", { name: /voir les projets/i }),

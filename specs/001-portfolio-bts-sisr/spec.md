@@ -4,9 +4,9 @@
 
 **Created**: 2026-11-04
 
-**Status**: Ready for implementation; owner-provided facts and media remain subject to review
+**Status**: Owner-confirmed education facts incorporated; remaining unknowns are explicitly bounded
 
-**Input**: User request for an ambitious creative-editorial home-page art direction while preserving the existing multipage portfolio, verified content, accessible network scene, and deployment boundary.
+**Input**: User requests for the existing multipage portfolio, accepted visual direction, and source-traceable content migrations, including the owner's confirmed education history and current second-year BTS status.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -44,16 +44,16 @@ A visitor can browse all seven projects from `/projets`, see a concise factual p
 
 ### User Story 3 - Understand the profile, school journey, and technology watch (Priority: P2)
 
-A visitor can read a concise profile and consult separate pages for the school journey and for an editorial technology-watch framework suited to BTS SIO. Missing details are clearly identified rather than guessed. The watch page does not claim that personal research or publications have already been done.
+A visitor can read a concise profile and consult separate pages for the owner-confirmed school journey and an editorial technology-watch framework suited to BTS SIO. Details that remain unknown are not guessed. The watch page does not claim that personal research or publications have already been done.
 
 **Why this priority**: Recruiters need context, while outdated or invented details would undermine trust.
 
-**Independent Test**: Compare all displayed profile and education facts with the request and audit; verify unknown school names, dates, and statuses are explicitly marked as awaiting confirmation, and that the watch page distinguishes a proposed framework from completed research.
+**Independent Test**: Compare displayed education facts with the owner's confirmation; verify the three study periods and current school/status, ensure no BTS end date or diploma award is inferred, and confirm the watch page distinguishes a proposed framework from completed research.
 
 **Acceptance Scenarios**:
 
 1. **Given** a visitor on `/profil`, **Then** the page uses only approved profile facts and does not expose unapproved contact information.
-2. **Given** a visitor on `/ecole`, **Then** confirmed BTS SIO SISR information is distinguished from unconfirmed institution, dates, and prior-study details.
+2. **Given** a visitor on `/ecole`, **Then** CFA INSTA is identified as the current institution, the confirmed BTS SIO SISR status is presented, and project topics are distinguished from the official curriculum.
 3. **Given** a visitor on `/veille-technologique`, **Then** they find an editorial structure suitable for BTS SIO SISR, with no fabricated personal research, dated findings, or citations.
 
 ### User Story 4 - Contact the owner safely (Priority: P2)
@@ -135,6 +135,23 @@ A visitor sees the “BUILDING CONNECTIONS” title and network scene as equally
 4. **Given** a visitor reaches the hero actions, **When** they compare the two links or hover the project action, **Then** “Voir les projets” reads as the primary action and receives a restrained, distinctive hover response while “Me contacter” remains secondary.
 5. **Given** the viewport is mobile, reduced motion is enabled, or WebGL is unavailable, **When** the hero adapts, **Then** it remains readable, non-overflowing, and usable with its static fallback and semantic equipment controls.
 
+### User Story 9 - Migrate verified profile and education content (Priority: P1)
+
+A visitor can read a naturally written profile with four owner-confirmed, CV-backed professional experiences, a visual three-stage education timeline, current second-year BTS status, CFA INSTA, and a school page that explains documented project practices. Unsupported dates, responsibilities, or degree completion remain excluded.
+
+**Why this priority**: The owner wants relevant existing information recovered without re-entering it, while avoiding invented credentials, stale claims, or accidental publication of personal details.
+
+**Independent Test**: Verify the four confirmed professional experiences and duties plus the three confirmed education entries and their periods on the profile page, show the current CFA INSTA/BTS status and verified logo on the school page, link practices to existing case studies, omit an unprovided BTS end date/diploma claim, and keep contacts unchanged.
+
+**Acceptance Scenarios**:
+
+1. **Given** the owner opens `/profil`, **When** they read the page, **Then** it presents a natural introduction, a visual timeline for BAC STI2D SIN (2022–2023), one year of BUT Informatique (2023–2024), and BTS SIO SISR at CFA INSTA since 2025, and highlights current second-year status and the confirmed systems/networks/support apprenticeship goal.
+2. **Given** a visitor opens `/ecole`, **When** they review the education information, **Then** CFA INSTA is identified as the current institution, the BTS SIO SISR option is explained, and project-documented work is distinguished from the official course curriculum.
+3. **Given** the owner has confirmed the institution, education history, current year of study, and four professional experiences in the CV, **Then** those facts and only their documented responsibilities are presented; no end date, diploma award, date, or responsibility is inferred.
+4. **Given** the owner opens `/contact`, **Then** no legacy e-mail address, social profile, or other personal destination is published without explicit approval for that exact destination.
+5. **Given** a visitor opens `/ecole`, **Then** the CFA INSTA logo is served from the new public assets only after visual review, with meaningful alt text and no direct legacy asset URL.
+6. **Given** a reader checks the seven project records, **Then** each existing entry, documented tools, approved media, limitations, and the unresolved Bash overlap are accounted for in the migration report without changing the projects page design.
+
 ## Edge Cases
 
 - Unknown paths and unknown project slugs show a branded not-found page with working navigation.
@@ -149,6 +166,9 @@ A visitor sees the “BUILDING CONNECTIONS” title and network scene as equally
 - A selected node has no keyboard pointer equivalent; the semantic node controls must provide the same information.
 - A project has no privacy-reviewed screenshot; keep its preview text-only.
 - Pointer hover is unavailable on touch; project image previews remain accessible through focus/tap or stay hidden while the full link works.
+- A new owner confirmation supersedes the older "pending confirmation" state for the specific school facts it confirms; do not extend it to unprovided end dates or diploma awards.
+- Legacy skill levels are self-assessed without a validation method; describe only practices evidenced by project records, not proficiency.
+- A legacy contact channel exists but its owner has not explicitly approved the exact destination; do not copy it into app data or public output.
 
 ## Requirements *(mandatory)*
 
@@ -162,7 +182,7 @@ A visitor sees the “BUILDING CONNECTIONS” title and network scene as equally
 - **FR-006**: Each project detail MUST use only claims supported by the audited source material or owner confirmation; unknown details, dates, individual contributions, and results MUST NOT be invented.
 - **FR-007**: Prototype, simulation, and rule-based behavior MUST be labelled accurately; the potential overlap between the Bash entries MUST remain transparent.
 - **FR-008**: Reused legacy images MUST be copied to the new site's assets only after visual review for privacy and relevance; `ancien-portfolio/` MUST NOT be modified.
-- **FR-009**: The profile and school pages MUST use only confirmed information. The page MUST visibly mark important missing institution, date, and historical-study details as awaiting confirmation rather than present them as fact.
+- **FR-009**: The profile and school pages MUST use owner-confirmed information, including the three confirmed education stages, current second-year BTS SIO SISR status, CFA INSTA, and the four CV-backed professional experiences with their documented responsibilities. The pages MUST NOT publish a phone number or infer a BTS end date, qualification award, experience date, or responsibility.
 - **FR-010**: The technology-watch page MUST provide an editorial framework appropriate to BTS SIO SISR without claiming unprovided personal research, findings, or citations.
 - **FR-011**: The contact page MUST show only exact public channels explicitly approved by the owner; when none are approved it MUST not render empty, invented, or broken links.
 - **FR-012**: The visual system MUST retain the existing editorial minimalist structure and use ivory `#F5F3EE`, charcoal `#181818`, electric blue `#315BFF`, and coral orange `#FF7049` intentionally.
@@ -186,13 +206,22 @@ A visitor sees the “BUILDING CONNECTIONS” title and network scene as equally
 - **FR-030**: On desktop, the home hero MUST balance its existing title with the network scene, limiting the title's size enough to preserve equipment visibility and giving the scene approximately 50–60% of the hero's visual width.
 - **FR-031**: The existing network scene MUST remain lightweight and lazy-loaded while presenting varied sphere sizes and depth, refined low-intensity material highlights, clearly visible electric-blue connections, slow organic motion, and subtle pointer interaction; it MUST NOT add post-processing or dependencies.
 - **FR-032**: The hero MUST retain semantic and scene-based Router, Switch, and Server selection, the static fallback, reduced-motion behavior, and an obviously primary “Voir les projets” action with “Me contacter” as its secondary action.
+- **FR-033**: The migration MUST create `docs/migration-contenu.md` before content implementation, recording exact local source locations, retrieved facts, stale items, permission-gated contact channels, contradictions, and unavailable information.
+- **FR-034**: The `/profil` page MUST use approved profile facts, show the four owner-confirmed professional experiences and their documented responsibilities, and describe project practices only when supported by existing project records; IT experiences MUST be visually distinguishable. It MUST NOT repeat unverified skill levels or imply undocumented employment.
+- **FR-035**: The `/ecole` page MUST identify CFA INSTA as the current institution, present the confirmed BTS SIO SISR status, distinguish project-derived topics from the official curriculum, and MUST NOT state unconfirmed results or remaining unknowns as facts.
+- **FR-036**: Legacy e-mail and social destinations MUST NOT be copied to the public site or app data without explicit owner approval for each exact destination.
+- **FR-037**: The migration MUST verify all seven existing project entries and their descriptions, documented tools, limitations, and reviewed images; it MUST document unresolved overlap or missing evidence without changing `/projets` design or modifying `ancien-portfolio/`.
+- **FR-038**: `/profil` MUST present a visual chronology of BAC STI2D option SIN (2022–2023), one year of BUT Informatique (2023–2024), and BTS SIO option SISR at CFA INSTA since 2025; it MUST emphasize the confirmed current second-year status without asserting an obtained diploma or BTS end date.
+- **FR-039**: `/ecole` MUST identify CFA INSTA as the current establishment, explain the BTS SIO SISR option using confirmed context, and distinguish portfolio project practice from the official curriculum.
+- **FR-040**: The CFA INSTA image MUST be visually reviewed, copied into the new public assets, and rendered with descriptive alternative text; no asset may be served from `ancien-portfolio/`.
+- **FR-041**: The current public professional goal MUST express the confirmed search for an IT apprenticeship, particularly in systems, networks, or IT support, without adding availability dates or work-experience claims.
 
 ### Key Entities
 
 - **Page**: One named public destination with a unique URL, page-specific title, and route-aware active navigation.
 - **Network node**: An illustrative network component with a label and optional technical description exposed through accessible controls.
 - **Project**: One of seven stable slugged case studies with a factual summary, observed work, status, limitations, and reviewed media where available.
-- **Profile and education detail**: Public facts whose current validity is known; unconfirmed institution and study periods are explicitly pending.
+- **Profile and education detail**: Public facts confirmed by the owner include BAC STI2D option SIN (2022–2023), one year of BUT Informatique (2023–2024), and BTS SIO option SISR at CFA INSTA since 2025, currently in the second year. No BTS end date or diploma award is inferred.
 - **Technology-watch framework**: Editorial prompts and topic categories, not a record of research already completed.
 - **Contact channel**: Optional exact destination, visible only after owner approval.
 - **Media asset**: A copied, visually reviewed legacy image with descriptive alternative text.
@@ -207,7 +236,7 @@ A visitor sees the “BUILDING CONNECTIONS” title and network scene as equally
 - **SC-004**: At 360 px, 768 px, and 1440 px viewport widths, all required routes have no horizontal page overflow and all navigation destinations remain usable.
 - **SC-005**: Keyboard-only checks can reach every navigation item and primary link, with a visible focus indicator and an accessible current-page state.
 - **SC-006**: With reduced motion enabled, all routes remain readable and usable and no non-essential animation is required to discover content.
-- **SC-007**: The school and profile pages publish no unconfirmed institution or education dates, and the technology-watch page includes no fabricated research activity or citations.
+- **SC-007**: The school and profile pages publish the owner-confirmed education stages/current status and four CV-backed professional experiences without a phone number, unconfirmed end dates, responsibilities, or diploma awards; the technology-watch page includes no fabricated research activity or citations.
 - **SC-008**: Only approved, reviewed legacy media and approved contact destinations are published; no file under `ancien-portfolio/` is changed.
 - **SC-009**: The requested palette appears in interface tokens and is applied in at least one visible title, interactive element, project number, separator, and editorial composition without excessive gradients or generic cards.
 - **SC-010**: With WebGL available, the 3D illustration becomes visible after the home hero enters the viewport; with WebGL unavailable or reduced motion enabled, the static illustration remains visible and the hero's text and links remain usable.
@@ -220,6 +249,14 @@ A visitor sees the “BUILDING CONNECTIONS” title and network scene as equally
 - **SC-017**: At 1440 px, the hero scene container occupies 50–60% of the available hero composition width and the title font size is smaller than the previous 13.2vw/12.5rem treatment.
 - **SC-018**: All three equipment controls select their corresponding scene node; reduced-motion mode and scene-unavailable fallback keep the same semantic controls available.
 - **SC-019**: The project CTA is visually distinguished as primary from the contact CTA, and both remain visible, keyboard-operable, and non-overlapping at 360 px, 768 px, and 1440 px.
+- **SC-020**: `docs/migration-contenu.md` maps profile, education, contacts, and every existing project to precise repository source locations and states all confirmation/privacy boundaries.
+- **SC-021**: Every practice displayed on `/profil` and `/ecole` is linked to at least one existing project record; no legacy self-assessed level is displayed as an established proficiency.
+- **SC-022**: `/ecole` describes project-derived technical themes as examples, not as the official BTS curriculum, and publishes no unconfirmed school name, period, prior qualification, or result.
+- **SC-023**: No legacy personal contact destination appears in application content or rendered public routes before exact-value owner approval.
+- **SC-024**: All seven existing project slugs remain present; their factual tools, limitations, and reviewed image mappings are accounted for, while possible Bash overlap and absent source files remain explicit.
+- **SC-025**: `/profil` presents exactly the three owner-confirmed education stages and clearly identifies the BTS as current second year, with no invented completion date or awarded qualification.
+- **SC-026**: `/ecole` identifies CFA INSTA as the current establishment and renders the visually reviewed local logo with descriptive alt text.
+- **SC-027**: The public apprenticeship goal includes systems, networks, or IT support as confirmed; neither the home nor editorial pages claim undocumented work experience or a degree award.
 
 ## Assumptions
 
@@ -230,3 +267,27 @@ A visitor sees the “BUILDING CONNECTIONS” title and network scene as equally
 - The existing seven project slugs are stable unless current routes or tests establish a different published contract. URLs in this specification use the requested `/projets/:slug` prefix.
 - The watch page is an honest, reusable editorial framework; actual sources and personal findings can be added later by the owner.
 - The interactive 3D scene and verified project images are existing approved resources; this increment may improve their home-page composition but does not expand project claims or change other routes.
+- The legacy portfolio is the source of historical declarations only. The owner has now confirmed the BAC STI2D SIN period, one year of BUT Informatique period, BTS SIO SISR since 2025, CFA INSTA, and current second-year status. These confirmations do not establish diploma awards for past study, a BTS end date, project contributions, or professional experience.
+- Project-backed practices may be summarized editorially, but they do not prove mastery, a formal course syllabus, employment, individual authorship, or current operational status.
+
+## Increment: Zero Trust technology watch
+
+The existing `/veille-technologique` route presents a professional, editorially styled
+page titled “ZERO TRUST.” It explains the model, organizational context, MFA, least
+privilege, segmentation/microsegmentation, identity/device checks, benefits, and limits
+for a BTS SIO SISR audience. It explicitly states that Zero Trust complements defense in
+depth and does not automatically replace firewalls or VPNs.
+
+The page provides a keyboard- and mobile-operable four-step access-flow demonstration:
+resource request, identity verification, authorization/context checks, and policy
+decision. A simulated device-compliance control changes the final outcome. Motion remains
+subtle and respects reduced-motion preferences; no additional Three.js scene is added.
+
+Documented sources are stored separately from the page rendering. The exact ANSSI guide
+“Modèle Zero Trust” is dated 20 June 2025; NIST “Zero Trust Architecture”, SP 800-207, is
+dated August 2020. CERT-FR is presented only as a changing alerts feed, without inventing
+an individual alert or publication date. Each reference has a paraphrased summary, source
+link, and technical takeaway. Cisco routing, Linux administration/Bash, and network
+monitoring links are conceptual and do not claim a Zero Trust implementation. “Ce que
+cette veille m’apporte” remains a template for the owner to complete after studying the
+sources; no personal experience or conclusion is attributed to them.

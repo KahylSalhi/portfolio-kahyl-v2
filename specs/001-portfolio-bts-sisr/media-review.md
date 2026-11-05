@@ -13,6 +13,7 @@ L'original reste intact sous `ancien-portfolio/`.
 | `ancien-portfolio/images/topologie-cisco.png` | `public/assets/images/projects/cisco-topology.png` | Topologie générique sans adressage visible ni identifiant personnel. |
 | `ancien-portfolio/images/vigilflow-graphique.png` | `public/assets/images/projects/vigilflow-chart.png` | Graphique de démonstration sans coordonnée ni adresse visible ; le statut simulé est explicité dans la légende. |
 | `ancien-portfolio/images/bash-script.png` | `public/assets/images/projects/bash-user-manager-code.png` | Extrait de code avec variable générique ; aucune donnée d'exécution ou identité visible. |
+| `ancien-portfolio/images/ecole.jpg` | `public/assets/images/school/cfa-insta-logo.png` | Logo du CFA INSTA, visuellement vérifié comme identité de l'établissement ; aucun renseignement personnel apparent. Le fichier contient une image PNG de 597 × 388 px malgré son extension source `.jpg`. |
 
 ## Images examinées mais non publiées
 

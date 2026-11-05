@@ -100,3 +100,89 @@ Unknown routes and unknown project slugs use the shared not-found treatment.
 **Performance/accessibility constraints**: Do not add post-processing, high-cost effects, or dependencies. Keep the scene lazy and DPR-capped, preserve semantic selection and keyboard-operable Router/Switch/Server controls, retain the static fallback, and continue to suppress scene animation under reduced motion.
 
 **Responsive decision**: Keep the desktop scene width within the specified 50–60% range; use the current stacked mobile scene and title layout at narrow widths. Both calls to action remain visible and keyboard accessible.
+
+## 9. Source-traceable content migration for Profile and School
+
+**Decision**: Record exact source locations and status in `docs/migration-contenu.md`
+before implementation. Preserve the current app's approved identity, BTS SIO SISR, and
+apprenticeship goal. Add only technical practices supported by existing project data,
+with links to those cases, and describe BTS-related technology only as themes evidenced in
+projects rather than a claimed official curriculum.
+
+**Rationale**: The old portfolio is a useful source of owner-declared history, while its
+audit predates the owner's direct confirmation of the education timeline and current
+institution. Subjective skill ratings, missing work-history evidence, and a possible
+duplicate Bash entry remain unresolved. The current request explicitly requires no
+invented claims and approval before contact details are published.
+
+**Content boundaries**:
+
+- Use the directly confirmed CFA INSTA, BAC STI2D option SIN (2022–2023), one year of BUT
+  Informatique (2023–2024), and current second-year BTS SIO SISR since 2025. Do not infer a
+  diploma award or BTS end date. The school image must be visually checked before use.
+- Use case-study-backed wording for Linux/WSL, Bash automation, Packet Tracer/RIP
+  v2/connectivity, and web interfaces. Do not infer proficiency, solo authorship,
+  employment, formal course units, or outcomes.
+- Keep exact legacy email and social destination values out of the migration report and
+  app data. Record only source file/line locations and require explicit approval for each
+  exact destination.
+- Verify all seven current project slugs, descriptions, tools, limitations, reviewed
+  images, and the unresolved Bash relationship. Do not change project-page design or
+  legacy files.
+
+**Alternatives considered**:
+
+- Publish the entire historical timeline and school profile verbatim: rejected because
+  dates, institution, status, and prior-study validation are not established as current.
+- Retain self-rated skill bars: rejected because they lack a validation method and the
+  request disallows invented or unconfirmed competence claims.
+- Copy all old contact values into `profile.ts`: rejected because approval must be
+  explicit for each destination.
+- Rewrite project data or rebuild the `/projets` page during this increment: rejected
+  because existing descriptions, media, and case studies already provide a traceable
+  baseline and the user excluded its design.
+
+## 10. Owner-confirmed education update
+
+**Decision**: The owner has confirmed BAC STI2D option SIN (2022–2023), one year of BUT
+Informatique (2023–2024), and BTS SIO option SISR at CFA INSTA since 2025, currently in
+the second year. Represent prior periods as study history without asserting an obtained
+diploma. Do not add an end date for the BTS. Update the goal to an IT apprenticeship in
+systems, networks, or support.
+
+**School asset decision**: `ancien-portfolio/images/ecole.jpg` was visually opened and
+verified to be the CFA INSTA institutional logo; no individual or private detail is
+visible. Its content is PNG (597 × 388 px) despite the source extension. Copy it into
+`public/assets/images/school/cfa-insta-logo.png` and use descriptive alt text. Keep the
+source image unchanged.
+
+**Rationale**: Direct owner confirmation supersedes the earlier "pending confirmation"
+state for the specific education and institution facts stated. It does not confirm
+diploma awards, BTS completion timing, or work experience.
+
+## 11. Source-traceable Zero Trust technology watch
+
+**Decision**: Replace the generic technology-watch framework with a focused Zero Trust
+page. Keep verified reference publications (the ANSSI guide, published 20 June 2025, and
+NIST SP 800-207, published August 2020) in a dedicated local data file. Present CERT-FR
+as a changing alert feed, not as a dated Zero Trust article or a cited individual alert.
+
+**Content boundaries**: Summaries and technical takeaways are paraphrases of the official
+ANSSI and NIST publication pages. No access/consultation date or personal research is
+claimed. The personal-reflection section is a prompt for future completion. Relationships
+to Cisco routing, Linux/Bash, and network monitoring are explicitly conceptual; they do
+not claim a Zero Trust implementation in the portfolio projects.
+
+**Interaction and performance**: Use a semantic React/CSS four-step flow with keyboard-
+operable step buttons and a simulated device-compliance switch that changes the policy
+outcome. Reuse installed Motion with the root reduced-motion configuration; do not add a
+second Three.js scene or a dependency.
+
+**Alternatives considered**:
+
+- Treat each CERT-FR alert as a Zero Trust publication: rejected because the supplied URL
+  is a changing directory and no specific alert was requested or source-verified.
+- Publish a first-person conclusion: rejected until the owner has studied the references
+  and supplies their own reflection.
+- Add another Three.js scene: rejected because the explanatory interaction is well served
+  by accessible DOM controls and light Motion/CSS effects.

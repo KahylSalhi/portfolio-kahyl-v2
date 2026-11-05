@@ -156,6 +156,23 @@ fallback, type-check, tests, and build.
 - [X] T083 Refine only `app/components/editorial/HeroComposition.tsx`, `app/features/network-scene/NetworkSceneCanvas.tsx`, `app/features/network-scene/networkSceneData.ts`, and hero-scoped rules in `app/styles/global.css` to rebalance typography/scene size, add restrained depth/material/color refinements, and emphasize “Voir les projets”.
 - [X] T084 Run `npm run typecheck`, `npm run test`, `npm run test:e2e`, and `npm run build`; verify bundle size remains substantially unchanged, desktop/mobile hero behavior, reduced-motion and fallback, and unchanged non-home pages and project index. Do not deploy.
 
+## Phase 12: User Story 9 - Source-Traceable Profile and School Migration
+
+**Goal**: Recover useful legacy content without publishing stale education claims,
+unverified skill levels, or unapproved contact details. Preserve the accepted homepage,
+projects design, routes, and legacy source tree.
+
+**Independent Test**: Trace all new Profile and School content to current approved data or
+an existing project record; ensure school details remain bounded, contact channels remain
+absent, all seven project/image/limitation mappings are documented, and unit, browser, type,
+and production build checks pass.
+
+- [X] T085 Update `spec.md`, `plan.md`, `research.md`, `data-model.md`, and `contracts/ui-contract.md` for the verified content migration and its privacy/evidence boundaries while preserving completed task history.
+- [X] T086 Create `docs/migration-contenu.md` before page implementation, mapping profile, education, skills, seven projects, reviewed/excluded media, contact authorization, contradictions, and unavailable information to exact local source files/lines.
+- [X] T087 Add focused assertions in `tests/unit/editorial-pages.test.ts` for project-backed practices, pending school details, no inferred proficiency/official course claims, and no unapproved contact data.
+- [X] T088 Improve only the content/data used by `app/routes/profile.tsx` and `app/routes/school.tsx` (and necessary additions to `app/data/profile.ts`); retain current layout/styles, existing project records/media, and all other routes.
+- [X] T089 Run focused unit tests, `npm run typecheck`, `npm run test`, `npm run test:e2e -- --workers=1`, and `npm run build`; verify all routes, source boundaries, project/image records, and no changes under `ancien-portfolio/`. Do not deploy.
+
 ## Dependencies and Execution Order
 
 - T006 and T011 are foundational and precede the new route implementation.
@@ -166,6 +183,124 @@ fallback, type-check, tests, and build.
 - T071-T075 are limited to the previously completed network-scene and projects-index enhancements.
 - T076-T080 are limited to the approved `/` redesign; do not change other routes or deploy.
 - T081-T084 are limited to the accepted hero and its scene; do not change other homepage sections, other routes, or deploy.
+- T085-T089 are limited to the source report and verified content on `/profil` and `/ecole`; do not change the homepage or projects design, publish personal contacts, modify `ancien-portfolio/`, or deploy.
+- T090-T093 update only owner-confirmed profile and school facts plus the reviewed school logo; preserve all visual design and project records, and do not modify `ancien-portfolio/` or deploy.
+- T094-T097 update only the `/veille-technologique` Zero Trust content, its local source data, scoped styles, tests, and directly related Spec Kit artifacts; do not change other route content, modify `ancien-portfolio/`, or deploy.
+- T098-T100 add source-checked 2026 Zero Trust news only to the existing technology-watch data/page/styles/tests and this task file; preserve the hero, interactive flow, four principles, every other route, and `ancien-portfolio/`.
+- T101-T103 update only Contact/CV placeholder data, the Contact route and scoped styles/tests, and these tasks; keep discovered legacy destinations unpublished pending owner approval, preserve other routes, leave `ancien-portfolio/` untouched, and do not deploy.
+- T104-T105 update only approved Contact destinations, Contact UI/styles/tests, and these tasks; keep the unapproved CV unavailable, preserve other routes and `ancien-portfolio/`, and do not deploy.
+- T106-T107 prepare only the conditional Contact CV download configuration/tests and this task file; do not copy, expose, or alter the personal PDF, do not edit Profile, preserve other routes and `ancien-portfolio/`, and do not deploy.
+- T108-T110 publish only the owner-approved, locally verified Contact CV, its tests, and these tasks; preserve all other routes and `ancien-portfolio/`, and do not deploy.
+- T111-T113 update only Profile experience data/UI/styles/tests and the directly related Spec Kit contract/tasks; preserve the hero, every other route, and `ancien-portfolio/`, and do not deploy.
+
+## Phase 13: User-Confirmed Education History
+
+**Goal**: Replace superseded pending school details with the owner-confirmed study history
+and current BTS status. Keep the existing art direction and project index intact.
+
+**Independent Test**: Check the Profile timeline at mobile/tablet/desktop, exact periods and
+current second-year label, CFA INSTA logo rendering and alt text, project-backed practices,
+no invented degree/end date/experience, all existing routes, and full test/build checks.
+
+- [X] T090 Update `spec.md`, `plan.md`, `research.md`, `data-model.md`, `contracts/ui-contract.md`, and `quickstart.md` for owner-confirmed education, current status, school logo, and the exact unknowns that remain.
+- [X] T091 Add focused unit and browser assertions for all three study periods, current second-year status and apprenticeship goal, no diploma award/BTS end date/experience claim, CFA logo provenance/alt text, and responsive Profile/School layouts.
+- [X] T092 Add typed education history and update only the content of Profile/School and shared profile strings for consistency; copy the visually reviewed CFA logo to `public/assets/images/school/cfa-insta-logo.png` and record it in `media-review.md` and `docs/migration-contenu.md`. Do not change the home or projects design/data.
+- [X] T093 Run focused tests, typecheck, all unit and browser tests, and production build; verify responsive behavior, accessibility, routes/project records, no legacy modifications, and no deployment.
+
+## Phase 14: Zero Trust Technology Watch
+
+**Goal**: Build the existing `/veille-technologique` route into a complete, source-traceable
+Zero Trust learning page with an accessible interactive flow. Keep documented references
+separate from current alerts and leave the personal reflection for later completion.
+
+**Independent Test**: Check official titles/dates and links, distinguish CERT-FR's dynamic
+feed from publications, operate both policy outcomes by keyboard, verify all educational
+topics and the unfilled personal reflection, and test 360/768/1440 px layouts.
+
+- [X] T094 Update the feature specification, plan, research, data model, UI contract, quickstart, and task sequence for the source-verified Zero Trust page and its personal-content boundaries.
+- [X] T095 Add typed, updateable publication/feed data and implement the existing technology-watch route with educational sections, responsive editorial styling, source timeline, BTS links, and a four-stage interactive flow; do not add dependencies or a second 3D scene.
+- [X] T096 Add unit and browser tests for exact official publication metadata, feed/reference separation, claims boundaries, interactive allow/deny decisions, keyboard use, and responsive widths.
+- [X] T097 Run type-check, unit tests, browser tests, and production build; verify the 360/768/1440 px rendering, preserve other routes and all `ancien-portfolio/` content, and do not deploy.
+
+## Phase 15: 2026 Zero Trust News Timeline
+
+**Goal**: Add a responsive editorial chronology of three official 2026 publications to
+`/veille-technologique`, with source links, accessible summaries, technical takeaways,
+SISR connections, and unanswered prompts for the owner's future analysis.
+
+**Independent Test**: Verify official titles, dates, organizations, and URLs; check that
+each card is marked as selected rather than personally read/analyzed, contains the three
+questions without answers, renders without horizontal overflow at 360/768/1440 px, and
+respects reduced motion.
+
+- [X] T098 Verify publication metadata and add typed local data for the NSA Zero Trust guidelines, NIST secure DNS deployment guide, and NIST IR 8587; preserve the existing ANSSI 2025 and NIST 2020 references.
+- [X] T099 Add the “L’évolution du Zero Trust en 2026” vertical editorial timeline with responsive cards, restrained Motion reveals/hover, per-publication unanswered analysis questions, and scoped reduced-motion behavior; do not alter the hero, interactive flow, four principles, or other routes.
+- [X] T100 Add focused metadata/content/responsive browser tests, run TypeScript, unit and full browser suites, and production build; verify no changes under `ancien-portfolio/` and do not deploy.
+
+## Phase 16: Contact Page and CV Publication Gate
+
+**Goal**: Build an editorial Contact page for the confirmed second-year BTS SIO SISR
+student and IT apprenticeship search. Keep email, GitHub, LinkedIn, and CV links hidden
+until exact destinations/files are owner-approved; do not imply a form service exists.
+
+**Independent Test**: Check confirmed profile/goal copy, no unapproved active contact links,
+CV download absent without an approved PDF, accessibility, reduced motion, and
+360/768/1440 px layout. Keep legacy source files unchanged.
+
+- [X] T101 Verify current contact UI/data patterns, record legacy contact candidates for owner validation without adding their values to application assets, and search the repository for a valid current CV PDF.
+- [X] T102 Implement the Contact-only editorial page, responsive scoped styles, explicit contact approval slots, and optional approved-CV configuration without publishing unapproved destinations or displaying inactive links.
+- [X] T103 Add Contact unit/browser/accessibility/responsive coverage; run type-check, tests, and build; verify no modifications to non-Contact pages or `ancien-portfolio/`, and do not deploy.
+
+## Phase 17: Owner-Approved Contact Destinations
+
+**Goal**: Publish only the three professional contact destinations explicitly approved
+by the owner. Preserve the existing Contact design, leave the CV download unavailable,
+and keep all other routes and `ancien-portfolio/` unchanged.
+
+**Independent Test**: Assert the exact `mailto:` and HTTPS destinations, safe new-tab
+attributes on external profiles, visible hover and keyboard-focus states, automated
+accessibility, reduced motion, and 360/768/1440 px layouts.
+
+- [X] T104 Store only the three owner-approved Contact destinations in `app/data/contact.ts`; render clear interactive links on Contact with exact external URLs and safe new-tab attributes, remove pending-approval copy, and retain the CV publication gate.
+- [X] T105 Update Contact unit/browser tests and Contact navigation expectation for exact destinations, link behavior, keyboard focus, hover, accessibility, reduced motion, and responsive widths; run type-check, tests, and build, check the scoped diff and `ancien-portfolio/`, and do not deploy.
+
+## Phase 18: Private CV Integration Preparation
+
+**Goal**: Prepare the exact CV download path while keeping the button and PDF unpublished
+until the final PDF is present and the owner gives definitive publication approval.
+Prepare an experience-content outline without changing Profile or inventing CV missions.
+
+**Independent Test**: Assert the exact configured path, no download button in Contact while
+the CV is unapproved, no CV copied into `public/`, and no changes to Profile or the legacy
+folder. Verify the production prerender contains no CV download link.
+
+- [X] T106 Set the Contact CV path to `/documents/CV_Kahyl_SALHI.pdf` while tracking file presence and approval separately; preserve the gated button and add regression coverage for the path and hidden button.
+- [X] T107 Validate the privately supplied PDF locally without publishing it; run Contact tests, type-check, and production build; inspect prerendered Contact HTML and build output for absence of the download link/PDF. Provide a factual Profile experience proposal from the CV while leaving the Profile page unchanged; verify `ancien-portfolio/` remains untouched and do not deploy.
+
+## Phase 19: Owner-Approved CV Publication
+
+**Goal**: Publish the owner-approved, privacy-checked CV from the Contact page without
+changing other pages, the legacy portfolio, or the design.
+
+**Independent Test**: Confirm the PDF opens, extractable text contains no phone number,
+Playwright downloads the exact PDF, and the production client build contains it.
+
+- [X] T108 Confirm the exact public PDF is valid, contains no extractable phone number, and no older CV is present in public resources.
+- [X] T109 Enable the CV publication gate and update Contact unit/browser tests, including a real Playwright download check.
+- [X] T110 Run focused tests, type-check, production build, and confirm the PDF is copied to the build output; do not deploy.
+
+## Phase 20: Profile Professional Experiences
+
+**Goal**: Add the four CV-backed professional experiences to `/profil`, emphasizing
+IT experience while preserving the existing Profile design language and all other routes.
+
+**Independent Test**: Verify the exact four roles, periods, and responsibilities, accessible
+list and headings, distinct IT styling, responsive layouts, reduced-motion behavior, tests,
+type-check, and production build. The Profile page must not expose a phone number.
+
+- [X] T111 Add typed Profile data for the four owner-provided, CV-backed experiences without introducing unverified dates or duties.
+- [X] T112 Add an accessible, responsive Profile timeline with clear IT/non-IT distinction and restrained reveal animations; add unit and browser regression coverage.
+- [X] T113 Run focused tests, type-check, and production build; verify no phone-number content or changes outside Profile, its tests, and Spec Kit; do not deploy.
 
 ## Parallel Opportunities
 

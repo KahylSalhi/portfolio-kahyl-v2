@@ -38,8 +38,8 @@ Expected outcomes:
 - Type checking reports no errors.
 - Unit tests cover the route registry, seven project records, and safe content rules.
 - Browser tests cover direct route loading, active navigation, home return, responsive
-  widths, visible focus, reduced motion, home section order, profile facts, and featured
-  project data/image consistency.
+  widths, visible focus, reduced motion, the confirmed three-stage Profile timeline,
+  CFA INSTA identity/logo on School, and featured project data/image consistency.
 - The production build completes and prerenders all six top-level pages and seven project
   details.
 - No image from `ancien-portfolio/` is copied without visual privacy review.
@@ -58,8 +58,9 @@ npx playwright install chromium
 4. Navigate by keyboard; check focus visibility, link names, and current-page semantics.
 5. Enable reduced motion; confirm content and routes remain visible, the static network
    illustration is used, and no animation is required.
-6. Confirm the school page marks missing details, the watch page does not claim unperformed
-   research, and the contact page contains no unapproved destination.
+6. Confirm the School page identifies CFA INSTA and BTS SIO SISR, labels project-derived
+   practices as examples rather than the official curriculum, the watch page does not
+   claim unperformed research, and the contact page contains no unapproved destination.
 7. Confirm every project preview uses only the reviewed asset belonging to that project,
    and that every detail uses the correct slug and qualified facts.
 8. Before adding any legacy screenshot, inspect it visually and copy only an approved image.
@@ -68,6 +69,14 @@ npx playwright install chromium
    as distinct sections without horizontal overflow.
 10. With reduced motion or unavailable WebGL, check that the homepage identity and all
     content remain readable and that the static scene fallback is present.
+11. On `/profil`, verify the three confirmed education periods, current second-year BTS
+    status, project-backed practices, and apprenticeship goal; do not infer a BTS end date
+    or an awarded diploma.
+12. On `/veille-technologique`, step through the access diagram by keyboard and touch,
+    test both simulated device-compliance decisions, and confirm the ANSSI/NIST references
+    show their source publication dates while CERT-FR is labelled as a changing alert feed.
+13. Confirm the personal reflection remains a prompt to complete rather than a claim about
+    research or conclusions already made.
 
 Deployment and production hosting checks are deferred. Manually confirm the home scene
 responds subtly to pointer input and Router, Switch, and Server descriptions are available

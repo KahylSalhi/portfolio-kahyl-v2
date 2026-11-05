@@ -11,10 +11,10 @@ const pages = [
   {
     path: "/veille-technologique",
     currentLink: "Veille",
-    heading: "Observer. Vérifier. Comprendre.",
+    heading: "ZERO TRUST.",
   },
-  { path: "/ecole", currentLink: "École", heading: "Un parcours en construction." },
-  { path: "/contact", currentLink: "Contact", heading: "Parlons de la suite." },
+  { path: "/ecole", currentLink: "École", heading: "Mon école et ma formation." },
+  { path: "/contact", currentLink: "Contact", heading: "LET'S CONNECT." },
 ];
 
 for (const item of pages) {

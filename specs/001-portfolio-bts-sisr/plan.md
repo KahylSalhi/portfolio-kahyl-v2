@@ -2,11 +2,11 @@
 
 **Branch**: `001-portfolio-bts-sisr` | **Date**: 2026-11-04 | **Spec**: [spec.md](./spec.md)
 
-**Input**: Existing multipage React Router Framework Mode portfolio and approved targeted home-hero refinement specification.
+**Input**: Existing multipage React Router Framework Mode portfolio and owner-confirmed education-history update.
 
 ## Summary
 
-Preserve the accepted homepage and refine only its existing hero. Slightly reduce the “BUILDING CONNECTIONS” title, reserve 50–60% of desktop hero width for the existing lazy network scene, and refine that scene with depth, varied sphere sizes, clearer electric-blue links, subtle material highlights, and smooth pointer/organic motion. Make “Voir les projets” the visible primary action and retain “Me contacter” as secondary. Keep the existing fallback, reduced-motion behavior, responsive design, semantic controls, and bundle dependencies; do not alter any other homepage section, route, or project page, modify `ancien-portfolio/`, or deploy.
+The accepted multipage design, home page, and projects page remain unchanged. This increment replaces previously pending education fields with the owner's confirmed three-stage education history, current second-year BTS SIO SISR status at CFA INSTA, and clarified apprenticeship goal. Profile gets a visual study timeline; the school page identifies CFA INSTA and uses its visually reviewed local logo alongside documented project practices. No BTS end date, diploma award, experience, or contact channel is inferred. `ancien-portfolio/` remains read-only and nothing is deployed.
 
 ## Technical Context
 
@@ -16,30 +16,30 @@ Preserve the accepted homepage and refine only its existing hero. Slightly reduc
 
 **Storage**: Local, typed portfolio content and reviewed public assets; no backend.
 
-**Testing**: Existing type-check, Vitest, and Playwright scripts. Add focused hero assertions for the desktop scene-width ratio and title sizing, primary/secondary CTA distinction, responsive overflow, equipment selection, and reduced-motion/fallback preservation; rerun unit/browser coverage and production build.
+**Testing**: Existing type-check, Vitest, and Playwright scripts. Add focused assertions for the three confirmed education records, second-year status, CFA logo and alt text, project-backed practices, no end-date/diploma/experience claims, and unchanged contact boundaries. Run type-check, unit tests, responsive/accessibility browser checks, and the production build.
 
 **Target Platform**: Static client-rendered build for current desktop and mobile browsers. Deployment is not part of this iteration.
 
 **Project Type**: Existing React Router Framework Mode application, extended with route modules and static prerendering.
 
-**Performance Goals**: Preserve lazy scene loading, existing dependencies, and capped rendering cost. Refine existing Three.js primitives and materials without postprocessing, remote resources, or a substantial scene-bundle increase.
+**Performance Goals**: Leave the existing lazy scene, dependencies, and page performance unchanged; the content-only increment introduces no runtime dependencies.
 
-**Constraints**: Preserve existing routes, global navigation, and all non-home content; use only confirmed profile data and reviewed public assets; do not modify `ancien-portfolio/`; respect reduced motion and keyboard access; do not deploy.
+**Constraints**: Preserve the visual design, routes, navigation, home page, and project index; only update shared profile wording needed for consistency, Profile and School content/data, the visually reviewed school logo asset, and related docs/tests. Do not infer diploma awards, a BTS end date, or experience; do not expose legacy contact channels, modify `ancien-portfolio/`, or deploy.
 
-**Scale/Scope**: Refine the existing home hero, network-scene renderer, hero-scoped styles, related tests, and Spec Kit documents only. Preserve all remaining home sections, every other route, the global navigation, project-index behavior, and deployment boundary.
+**Scale/Scope**: Maintain the accepted visual increments as historical work. For this increment, update the migration report, typed profile/education data, Profile and School copy, add one reviewed school logo asset, focused tests, and applicable Spec Kit artifacts. Preserve visual styling, `/projets`, all other route structures, shared navigation, and deployment scope.
 
 ## Constitution Check
 
 | Principle or constraint | Plan decision | Gate |
 |---|---|---|
 | Verifiable Content and Privacy | Reuse only source-traceable project details; expose no unconfirmed school/contact details; review each selected image before copying. | PASS |
-| Distinctive Editorial Art Direction | Balance the approved editorial title with a more present sculptural network and intentional blue/coral accents without gaming effects. | PASS |
-| Accessible, Responsive Experience | Use semantic navigation, active-route semantics, visible focus, touch-equivalent interactions, responsive layouts, and reduced-motion behavior. | PASS |
-| Maintainable, Lightweight Engineering | Refine existing Three.js primitives/materials, preserve lazy loading, reuse semantic controls, and add no dependencies or post-processing. | PASS |
+| Distinctive Editorial Art Direction | Preserve the accepted profile and school page layout and styles; change only factual copy/content data. | PASS |
+| Accessible, Responsive Experience | Reuse existing semantic page and project links; do not introduce new motion or interaction behavior. | PASS |
+| Maintainable, Lightweight Engineering | Keep profile practices in typed local data and link them to existing project records; add no dependencies. | PASS |
 | Spec-First Delivery and Verification | Align implementation and checked task state with the updated specification; run build, type-check, unit, and browser validation. | PASS |
 | Legacy portfolio remains read-only | Copy reviewed assets only; leave every path under `ancien-portfolio/` unchanged. | PASS |
 
-**Pre-design gate**: PASS. This increment is limited to the current hero and its scene; it preserves confirmed content, reduced motion, the fallback, every other page and section, and the no-deployment boundary.
+**Pre-design gate**: PASS. This increment is limited to confirmed factual content on Profile/School, shared profile strings, and a visually reviewed logo. The home-page and projects-page designs, contact destinations, legacy folder, and deployment remain out of scope.
 
 ## Project Structure
 
@@ -73,6 +73,20 @@ ancien-portfolio/              # read-only source
 
 ## Architecture and Technical Decisions
 
+### Owner-confirmed profile and education content migration
+
+- Read the existing audit, legacy pages, current `app/data/profile.ts` and `app/data/projects.ts`, Spec Kit artifacts, and the existing image review before editing content.
+- Create `docs/migration-contenu.md` first as a source map. Include file/line references and separate approved facts from self-reported historical data, stale dates, unknowns, and permission-gated contact destinations.
+- Add the user-confirmed BAC STI2D option SIN (2022–2023), one year of BUT Informatique (2023–2024), and BTS SIO option SISR at CFA INSTA since 2025 to typed education data. Mark the BTS current and explicitly in its second year; leave end date absent and do not imply past diploma awards.
+- Update the public goal to seeking an apprenticeship in IT, especially systems, networks, or support. Keep the profile summary natural and supported by documented project practices linked to their current case studies; omit legacy skill ratings.
+- On `/profil`, render a visual, responsive chronology using the existing editorial timeline treatment. On `/ecole`, identify CFA INSTA and explain BTS SIO SISR while labelling technical topics as examples from portfolio projects, not the official curriculum.
+- Visually inspect the legacy school asset, copy only the verified logo into the new public asset tree, add its provenance to the media review and migration report, and use descriptive alt text. Leave every legacy source file untouched.
+- Update the Spec Kit artifacts and add regression coverage for confirmed education facts, no invented diploma/end-date/experience, project evidence, the reviewed image, and preserved contact privacy; run typecheck, all tests, responsive/a11y browser tests, and build.
+
+The previous scene, hero, homepage, and projects-index design decisions in this plan
+describe completed historical increments; they are not implementation scope for this
+content migration.
+
 ### Routes and rendering
 
 - Define `/`, `/projets`, `/profil`, `/veille-technologique`, `/ecole`, `/contact`, and `/projets/:slug` in the existing React Router route manifest.
@@ -87,7 +101,7 @@ ancien-portfolio/              # read-only source
 - Treat `docs/audit-ancien-portfolio.md` as an index of source claims, not proof of current status or personal contribution.
 - Keep seven records and clearly qualify the potential overlap between Bash automation and user management.
 - Describe the assistant as keyword/rule-based, VigilFlow as browser-local with simulated machine states, and the password checker as a limited pedagogical indicator.
-- Use only confirmed profile data. The current school/program information is limited to BTS SIO SISR; render institution, academic dates, and prior-study details as pending confirmation.
+- Use the owner-confirmed BAC STI2D SIN (2022–2023), one year of BUT Informatique (2023–2024), and BTS SIO SISR at CFA INSTA since 2025/currently in the second year. Do not infer a BTS end date, diploma award, or missing results.
 - Make the technology-watch page an editorial framework for future BTS SIO SISR entries; do not invent personal research, current findings, or citations.
 - Review image contents visually for identifiers, credentials, private contact data, or sensitive network details before copying them. Use meaningful alt text and captions; do not expose the legacy directory through public paths.
 - Do not add a CV, private portrait, school photo, contact destination, or external submission service without explicit approval.
@@ -143,7 +157,7 @@ ancien-portfolio/              # read-only source
 
 | Gate | Result | Evidence in design |
 |---|---|---|
-| Content remains verifiable and private | PASS | Source-traced project summaries; missing school/contact details remain pending; images require visual review. |
+| Content remains verifiable and private | PASS | Owner-confirmed education facts and source-traced project summaries; unapproved contact destinations remain unpublished; images require visual review. |
 | Editorial identity is elevated without a rebuild | PASS | Homepage-only asymmetric composition reuses approved type, palette, scene, profile, and project data. |
 | Accessible with reduced motion | PASS | Semantic navigation, active state, visible focus, touch behavior, and always-available content. |
 | Maintainable and lightweight | PASS | Reuse existing router, Motion, CSS, data model, and shared project detail template. |
@@ -155,3 +169,27 @@ ancien-portfolio/              # read-only source
 ## Complexity Tracking
 
 No constitution violations. Thirteen static content URLs are required by the requested independent pages and seven case studies; a shared detail template and local project data avoid duplicated implementations.
+
+## Phase 14: Zero Trust technology watch
+
+**Scope**: Replace only the content of `/veille-technologique`, its dedicated publication
+data, page-scoped visual styles, interaction component, focused tests, and directly
+related Spec Kit documentation. Keep route registration, shared navigation, other page
+content, legacy files, and deployment unchanged.
+
+**Implementation**:
+
+- Keep exact source title, organization, verified publication date, URL, paraphrased
+  summary, and technical takeaway together in `app/data/technology-watch.ts`.
+- Separate dated ANSSI/NIST references from the live CERT-FR alert directory; do not
+  invent a specific CERT-FR alert or personal consultation date.
+- Explain the Zero Trust request, identity, authorization/context, and policy-decision
+  steps in an accessible React flow; simulate device compliance to demonstrate allow/deny.
+- Cover MFA, least privilege, segmentation/microsegmentation, device identity, adoption
+  context, benefits, limitations, and defense-in-depth compatibility.
+- Relate Cisco routing, Linux/Bash, and network monitoring to SISR concepts without
+  claiming an existing Zero Trust deployment. Leave the personal reflection unfilled.
+
+**Validation**: Add unit and browser assertions for source metadata, interaction outcomes,
+keyboard access, and responsive widths. Run type-check, unit tests, browser tests, and the
+production build; do not deploy.
