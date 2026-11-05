@@ -47,6 +47,74 @@ test("the owner's name returns to home", async ({ page }) => {
   ).toBeVisible();
 });
 
+test("route changes use a short enter transition", async ({ page }) => {
+  await page.goto("/ecole");
+  await page.waitForTimeout(350);
+  await page
+    .getByRole("navigation", { name: "Navigation principale" })
+    .getByRole("link", { name: "Contact", exact: true })
+    .click();
+
+  await expect(page).toHaveURL("/contact");
+  await expect
+    .poll(() =>
+      page.locator(".route-transition").evaluate((element) =>
+        element
+          .getAnimations()
+          .filter((animation) => animation.playState === "running")
+          .map((animation) => animation.effect?.getTiming().duration),
+      ),
+    )
+    .toContain(280);
+});
+
+test("route changes do not animate when reduced motion is requested", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/ecole");
+  await page
+    .getByRole("navigation", { name: "Navigation principale" })
+    .getByRole("link", { name: "Contact", exact: true })
+    .click();
+
+  await expect(page).toHaveURL("/contact");
+  await expect
+    .poll(() =>
+      page.locator(".route-transition").evaluate((element) =>
+        element
+          .getAnimations()
+          .filter((animation) => animation.playState === "running"),
+      ),
+    )
+    .toHaveLength(0);
+});
+
+test("browser back and forward keep route navigation working", async ({
+  page,
+}) => {
+  await page.goto("/ecole");
+  await page
+    .getByRole("navigation", { name: "Navigation principale" })
+    .getByRole("link", { name: "Profil", exact: true })
+    .click();
+  await expect(page).toHaveURL("/profil");
+
+  await page.goBack();
+  await expect(page).toHaveURL("/ecole");
+  await expect(
+    page.getByRole("heading", { name: "Mon école et ma formation." }),
+  ).toBeVisible();
+
+  await page.goForward();
+  await expect(page).toHaveURL("/profil");
+  await expect(
+    page.getByRole("heading", {
+      name: "Curieux des systèmes. Attentif aux connexions.",
+    }),
+  ).toBeVisible();
+});
+
 test("the mobile menu opens and closes after navigation", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");

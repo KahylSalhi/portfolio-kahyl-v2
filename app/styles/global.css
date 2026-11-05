@@ -50,6 +50,11 @@ a:focus-visible {
   outline-offset: 5px;
 }
 
+button:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 4px;
+}
+
 .page-shell {
   width: min(100%, var(--content-max));
   margin-inline: auto;
@@ -146,10 +151,10 @@ a:focus-visible {
   transition:
     background-color 200ms ease,
     color 200ms ease,
-    border-color 200ms ease;
+    border-color 200ms ease,
+    transform 200ms var(--ease-editorial);
 }
 
-.section-link:hover,
 .section-link:focus-visible {
   border-color: var(--color-ink);
   background: var(--color-ink);
@@ -161,7 +166,6 @@ a:focus-visible {
   color: var(--color-paper);
 }
 
-.section-link--light:hover,
 .section-link--light:focus-visible {
   border-color: var(--color-paper);
   background: var(--color-paper);
@@ -171,6 +175,33 @@ a:focus-visible {
 .section-link__arrow {
   font-size: 1rem;
   line-height: 1;
+  transition: transform 180ms var(--ease-editorial);
+}
+
+.section-link:focus-visible .section-link__arrow {
+  transform: translate(0.12rem, -0.12rem);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .section-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .section-link:hover .section-link__arrow {
+    transform: translate(0.12rem, -0.12rem);
+  }
+
+  .section-link--light:hover {
+    border-color: var(--color-paper);
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .section-link:not(.section-link--light):hover {
+    border-color: var(--color-ink);
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
 }
 
 .hero {
@@ -856,6 +887,22 @@ a:focus-visible {
   color: var(--color-electric);
 }
 
+.page-intro h1,
+.project-detail__header h1 {
+  animation: editorial-title-arrive 360ms var(--ease-editorial) both;
+  animation-delay: 50ms;
+}
+
+@keyframes editorial-title-arrive {
+  from {
+    transform: translateY(0.12em);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
 .page-intro__description {
   max-width: 24rem;
   justify-self: end;
@@ -898,7 +945,7 @@ a:focus-visible {
   color: inherit;
   text-decoration: none;
   transition:
-    padding 220ms var(--ease-editorial),
+    background-color 220ms ease,
     color 180ms ease;
 }
 
@@ -933,22 +980,18 @@ a:focus-visible {
   transition: transform 260ms var(--ease-editorial);
 }
 
-.project-card:hover,
 .project-card:focus-visible {
-  padding-inline: 0.85rem;
+  background-color: color-mix(in srgb, var(--color-electric) 3%, transparent);
 }
 
-.project-card:hover::before,
 .project-card:focus-visible::before {
   transform: scaleY(1);
 }
 
-.project-card:hover::after,
 .project-card:focus-visible::after {
   transform: scaleX(1);
 }
 
-.project-index__item:has(.project-card:hover),
 .project-index__item:has(.project-card:focus-visible) {
   border-color: var(--color-electric);
 }
@@ -978,7 +1021,6 @@ a:focus-visible {
   transition: transform 220ms var(--ease-editorial);
 }
 
-.project-card:hover .project-card__title,
 .project-card:focus-visible .project-card__title {
   transform: translateX(0.25rem);
 }
@@ -1016,7 +1058,6 @@ a:focus-visible {
   object-fit: cover;
 }
 
-.project-card:hover .project-card__preview,
 .project-card:focus-visible .project-card__preview {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -1030,10 +1071,38 @@ a:focus-visible {
     transform 180ms var(--ease-editorial);
 }
 
-.project-card:hover .project-card__arrow,
 .project-card:focus-visible .project-card__arrow {
   transform: translate(0.2rem, -0.2rem);
   color: var(--color-coral);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    background-color: color-mix(in srgb, var(--color-electric) 3%, transparent);
+  }
+
+  .project-card:hover::before,
+  .project-card:hover::after {
+    transform: scale(1);
+  }
+
+  .project-index__item:has(.project-card:hover) {
+    border-color: var(--color-electric);
+  }
+
+  .project-card:hover .project-card__title {
+    transform: translateX(0.25rem);
+  }
+
+  .project-card:hover .project-card__preview {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .project-card:hover .project-card__arrow {
+    transform: translate(0.2rem, -0.2rem);
+    color: var(--color-coral);
+  }
 }
 
 .editorial-note {
@@ -1779,9 +1848,16 @@ a:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .route-transition,
-  .reveal {
+  .reveal,
+  .page-intro h1,
+  .project-detail__header h1 {
     animation: none !important;
     transition: none !important;
+  }
+
+  .route-transition {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

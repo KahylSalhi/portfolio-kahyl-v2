@@ -9,6 +9,7 @@ import { MotionConfig, motion } from "motion/react";
 import type { ReactNode } from "react";
 import {
   Links,
+  Link,
   Meta,
   Outlet,
   Scripts,
@@ -48,15 +49,18 @@ export default function App() {
       <motion.div
         key={pathname}
         className="route-transition"
-        initial={{ y: 8, opacity: 1 }}
+        initial={{ y: 6, opacity: 0.99 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+        transition={{
+          duration: 0.28,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       >
         <Outlet />
       </motion.div>
       <footer className="site-footer page-shell">
         <span>© Kahyl Salhi</span>
-        <a href="/">Accueil</a>
+        <Link to="/">Accueil</Link>
         <span className="mono">BTS SIO / SISR</span>
       </footer>
     </>

@@ -39,6 +39,9 @@ test("project previews reveal only the matching reviewed image on hover and focu
     name: /Testeur de mot de passe/,
   });
   const passwordPreview = passwordProject.locator(".project-card__preview");
+  await passwordProject.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(450);
+  const beforeHover = await passwordProject.boundingBox();
 
   await expect(passwordPreview.locator("img")).toHaveAttribute(
     "src",
@@ -47,6 +50,8 @@ test("project previews reveal only the matching reviewed image on hover and focu
   await expect(passwordPreview).toHaveCSS("opacity", "0");
   await passwordProject.hover();
   await expect(passwordPreview).toHaveCSS("opacity", "1");
+  const afterHover = await passwordProject.boundingBox();
+  expect(afterHover).toEqual(beforeHover);
 
   await page.mouse.move(0, 0);
   let projectFocused = false;

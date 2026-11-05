@@ -192,6 +192,7 @@ and production build checks pass.
 - T106-T107 prepare only the conditional Contact CV download configuration/tests and this task file; do not copy, expose, or alter the personal PDF, do not edit Profile, preserve other routes and `ancien-portfolio/`, and do not deploy.
 - T108-T110 publish only the owner-approved, locally verified Contact CV, its tests, and these tasks; preserve all other routes and `ancien-portfolio/`, and do not deploy.
 - T111-T113 update only Profile experience data/UI/styles/tests and the directly related Spec Kit contract/tasks; preserve the hero, every other route, and `ancien-portfolio/`, and do not deploy.
+- T114-T116 update only shared route transitions, editorial title reveals, scoped interaction styles/tests, and these tasks; preserve page content, the hero composition, 3D scene, palette, typography, and navigation, and do not deploy.
 
 ## Phase 13: User-Confirmed Education History
 
@@ -301,6 +302,19 @@ type-check, and production build. The Profile page must not expose a phone numbe
 - [X] T111 Add typed Profile data for the four owner-provided, CV-backed experiences without introducing unverified dates or duties.
 - [X] T112 Add an accessible, responsive Profile timeline with clear IT/non-IT distinction and restrained reveal animations; add unit and browser regression coverage.
 - [X] T113 Run focused tests, type-check, and production build; verify no phone-number content or changes outside Profile, its tests, and Spec Kit; do not deploy.
+
+## Phase 21: Shared Interaction Refinement
+
+**Goal**: Refine existing route transitions, section-title reveals, buttons, and project
+card hover behavior without changing page content, visual identity, or the home hero scene.
+
+**Independent Test**: Exercise client-side navigation and browser history, direct routes,
+reduced motion, visible keyboard focus, touch-sized project previews, accessibility,
+responsive layouts, type-check, and production build.
+
+- [X] T114 Refine the shared route enter transition to a brief opacity/transform motion and disable it for reduced-motion preferences.
+- [X] T115 Add a restrained, readable title reveal and polish button/project-card micro-interactions without layout shifts or mouse-only mobile behavior.
+- [X] T116 Add Playwright coverage for route transitions, reduced motion, and stable project-card layout; run unit/browser/accessibility/responsive checks, type-check, and production build. Do not deploy.
 
 ## Parallel Opportunities
 
