@@ -39,10 +39,8 @@ export default function Projects() {
                     <span className="project-card__summary">
                       {project.summary}
                     </span>
-                    <span
-                      aria-label={`Technologies : ${project.technologies.join(", ")}`}
-                      className="project-card__technologies"
-                    >
+                    <span className="project-card__technologies">
+                      <span className="visually-hidden">Technologies :</span>
                       {project.technologies.map((technology) => (
                         <span
                           className="project-card__technology mono"

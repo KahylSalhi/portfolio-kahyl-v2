@@ -5,18 +5,18 @@
 | Route | Contract |
 |---|---|
 | `/` | Existing editorial home and profile introduction. |
-| `/projets` | Index of all seven audited projects. |
+| `/projets` | Index of all seven audited projects, retaining the editorial list with technology labels sourced from existing project records and previews of approved media only. |
 | `/profil` | Natural profile with the confirmed apprenticeship goal, four CV-backed professional experiences (IT roles visually emphasized), project-backed practices, and a visual three-stage education timeline; current status is second-year BTS SIO SISR at CFA INSTA. No phone number, unsupported degree award, BTS end date, responsibility, proficiency level, or unapproved contact value. |
 | `/veille-technologique` | Zero Trust page with an interactive four-step access flow, pedagogical SISR links, two dated official reference publications, and the CERT-FR alert feed distinguished from publications. The personal reflection remains a template to complete. |
 | `/ecole` | CFA INSTA is identified as the current institution; BTS SIO SISR is explained with project-derived practical themes clearly distinguished from the official curriculum. The locally hosted, reviewed CFA INSTA logo has descriptive alternative text. |
 | `/contact` | Approved contact links only; explains when none are available. |
-| `/projets/password-checker` | Rule-based password checker demonstration, not a complete security assessment. |
-| `/projets/cisco-rip` | Cisco Packet Tracer / RIP case study with unverified details qualified. |
+| `/projets/password-checker` | Rule-based password checker demonstration, not a complete security assessment; shows only its reviewed code capture. |
+| `/projets/cisco-rip` | Cisco Packet Tracer / RIP case study with unverified details qualified and its reviewed topology capture. |
 | `/projets/system-network-diagnostic` | Keyword/rule-based diagnostic assistant. |
 | `/projets/network-monitor` | Bash host-availability demonstration; no private network details. |
 | `/projets/linux-diagnostic` | Linux/WSL Bash diagnostic case study with unknowns qualified. |
-| `/projets/vigilflow` | Local front-end prototype with simulated equipment states. |
-| `/projets/bash-user-manager` | Bash automation/user-manager entry with possible overlap disclosed. |
+| `/projets/vigilflow` | Local front-end prototype with simulated equipment states and its reviewed dashboard capture. |
+| `/projets/bash-user-manager` | Bash automation/user-manager entry with possible overlap disclosed and its reviewed code capture. |
 | Unknown path or project slug | Useful not-found page with a return to `/projets` and the persistent navigation. |
 
 Every listed route must load directly and after refresh in the static build.
@@ -32,6 +32,7 @@ Every listed route must load directly and after refresh in the static build.
 - `prefers-reduced-motion` suppresses or reduces non-essential movement without hiding content.
 - The home hero may load a subtle network scene near the viewport; its static illustration remains visible during loading, when motion is reduced, and if WebGL fails. Router, Switch, and Server information is available from keyboard-operable semantic controls.
 - The `/projets` list may reveal reviewed project images on pointer, focus, or touch. It never uses an unreviewed image, and its title, status, and detail link remain available without hover.
+- The project index remains a seven-item editorial list with technology labels from each project record. Case-study captures retain their audited alt text and captions, use numbered visual markers, and remain responsive with reduced motion.
 
 ## Home page art direction
 

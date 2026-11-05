@@ -193,6 +193,7 @@ and production build checks pass.
 - T108-T110 publish only the owner-approved, locally verified Contact CV, its tests, and these tasks; preserve all other routes and `ancien-portfolio/`, and do not deploy.
 - T111-T113 update only Profile experience data/UI/styles/tests and the directly related Spec Kit contract/tasks; preserve the hero, every other route, and `ancien-portfolio/`, and do not deploy.
 - T114-T116 update only shared route transitions, editorial title reveals, scoped interaction styles/tests, and these tasks; preserve page content, the hero composition, 3D scene, palette, typography, and navigation, and do not deploy.
+- T117-T119 update only `/projets`, project-detail presentation, project-scoped styles/tests, and related Spec Kit artifacts; preserve the seven projects, their content, approved media only, the home hero and 3D scene, all other routes, and `ancien-portfolio/`; do not deploy.
 
 ## Phase 13: User-Confirmed Education History
 
@@ -315,6 +316,20 @@ responsive layouts, type-check, and production build.
 - [X] T114 Refine the shared route enter transition to a brief opacity/transform motion and disable it for reduced-motion preferences.
 - [X] T115 Add a restrained, readable title reveal and polish button/project-card micro-interactions without layout shifts or mouse-only mobile behavior.
 - [X] T116 Add Playwright coverage for route transitions, reduced motion, and stable project-card layout; run unit/browser/accessibility/responsive checks, type-check, and production build. Do not deploy.
+
+## Phase 22: Editorial Project Index and Case Studies
+
+**Goal**: Give the existing seven-project list and detail pages a more expressive
+editorial-tech presentation using only current project data and reviewed media.
+
+**Independent Test**: Verify all seven existing projects and their copy remain intact,
+technology labels come from each project record, only reviewed images render, detail
+captures are accessible and gently revealed, portrait layouts do not overflow, reduced
+motion keeps media visible, and all unit/browser/accessibility/type/build checks pass.
+
+- [X] T117 Improve the existing project-list hierarchy with expressive section numbers, project-record technology labels, and refined approved-image previews; retain the list structure and all copy.
+- [X] T118 Recompose existing project captures and technical case-study sections with accessible numbered media, editorial spacing, subtle reveal/hover treatments, and portrait-responsive styling.
+- [X] T119 Add and run project-index/detail regression, accessibility, reduced-motion, portrait-responsive, type-check, and production-build checks; verify `ancien-portfolio/` and all out-of-scope pages remain unchanged. Do not deploy.
 
 ## Parallel Opportunities
 

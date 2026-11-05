@@ -31,44 +31,65 @@ for (const slug of slugs) {
 }
 
 test("project case studies feature only their approved media and captions", async ({
-    page,
+  page,
 }) => {
-    const mediaProjects = [
-      {
-        slug: "password-checker",
-        src: "/assets/images/projects/password-checker-code.png",
-        caption: /Extrait du script/,
-      },
-      {
-        slug: "cisco-rip",
-        src: "/assets/images/projects/cisco-topology.png",
-        caption: /Topologie présentée/,
-      },
-      {
-        slug: "vigilflow",
-        src: "/assets/images/projects/vigilflow-chart.png",
-        caption: /tableau de bord/,
-      },
-      {
-        slug: "bash-user-manager",
-        src: "/assets/images/projects/bash-user-manager-code.png",
-        caption: /menu Bash/,
-      },
-    ];
+  const mediaProjects = [
+    {
+      slug: "password-checker",
+      src: "/assets/images/projects/password-checker-code.png",
+      caption: /Extrait du script/,
+    },
+    {
+      slug: "cisco-rip",
+      src: "/assets/images/projects/cisco-topology.png",
+      caption: /Topologie présentée/,
+    },
+    {
+      slug: "vigilflow",
+      src: "/assets/images/projects/vigilflow-chart.png",
+      caption: /Écran du graphique de démonstration/,
+    },
+    {
+      slug: "bash-user-manager",
+      src: "/assets/images/projects/bash-user-manager-code.png",
+      caption: /Extrait de code sans/,
+    },
+  ];
 
-    for (const project of mediaProjects) {
-      await page.goto(`/projets/${project.slug}`);
-      const gallery = page.getByRole("generic", { name: "Visuels du projet" });
-      const figure = gallery.locator("figure");
+  for (const project of mediaProjects) {
+    await page.goto(`/projets/${project.slug}`);
+    const gallery = page.getByRole("region", { name: "Visuels du projet" });
+    const figure = gallery.locator("figure");
 
-      await expect(figure).toHaveCount(1);
-      await expect(figure.locator("img")).toHaveAttribute("src", project.src);
-      await expect(figure.locator("img")).toHaveAttribute("alt", /.+/);
-      await expect(figure.locator("figcaption")).toContainText(project.caption);
-      await expect(figure.locator(".project-detail__figure-index")).toHaveText(
-        "VISUEL / 01",
-      );
-    }
+    await expect(figure).toHaveCount(1);
+    await expect(figure.locator("img")).toHaveAttribute("src", project.src);
+    await expect(figure.locator("img")).toHaveAttribute("alt", /.+/);
+    await expect(figure.locator("figcaption")).toContainText(project.caption);
+    await expect(figure.locator(".project-detail__figure-index")).toHaveText(
+      "VISUEL / 01",
+    );
+  }
+});
+
+test("case-study media remains legible on a portrait phone with reduced motion", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/projets/cisco-rip");
+
+  const documentWidth = await page.evaluate(
+    () => document.documentElement.scrollWidth,
+  );
+  expect(documentWidth).toBeLessThanOrEqual(360);
+
+  const figure = page
+    .getByRole("region", { name: "Visuels du projet" })
+    .locator("figure");
+  await figure.scrollIntoViewIfNeeded();
+  await expect(figure.locator("img")).toBeVisible();
+  await expect(figure.locator("figcaption")).toBeVisible();
+  await expect(figure.locator("img")).toHaveCSS("opacity", "1");
 });
 
 test("project previews reveal only the matching reviewed image on hover and focus", async ({

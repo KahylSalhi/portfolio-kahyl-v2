@@ -68,6 +68,7 @@ export default function ProjectDetail() {
           <div
             aria-label="Visuels du projet"
             className="project-detail__gallery"
+            role="region"
           >
             {project.media.map((image, index) => (
               <Reveal key={image.src}>

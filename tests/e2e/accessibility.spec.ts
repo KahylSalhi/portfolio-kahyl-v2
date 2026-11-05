@@ -9,6 +9,9 @@ const paths = [
   "/ecole",
   "/contact",
   "/projets/password-checker",
+  "/projets/cisco-rip",
+  "/projets/vigilflow",
+  "/projets/bash-user-manager",
 ];
 
 for (const path of paths) {

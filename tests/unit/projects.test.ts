@@ -19,6 +19,16 @@ describe("portfolio project content", () => {
     ]);
   });
 
+  it("provides technology labels for every project-list entry", () => {
+    expect(
+      projects.every(
+        (project) =>
+          project.technologies.length > 0 &&
+          project.technologies.every((technology) => technology.trim().length > 0),
+      ),
+    ).toBe(true);
+  });
+
   it("does not resolve an unknown case-study slug", () => {
     expect(getProjectBySlug("not-a-real-project")).toBeUndefined();
   });
@@ -72,14 +82,5 @@ describe("portfolio project content", () => {
         "/assets/images/projects/bash-user-manager-code.png",
       ],
     ]);
-  });
-
-  it("uses only project-record technologies for the project index", () => {
-    expect(projects.every((project) => project.technologies.length > 0)).toBe(
-      true,
-    );
-    expect(
-      projects.flatMap((project) => project.technologies).filter(Boolean),
-    ).toEqual(projects.flatMap((project) => project.technologies));
   });
 });
